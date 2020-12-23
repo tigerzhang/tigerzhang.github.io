@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Welcome to Jekyll!"
+title:  "恢复博客"
 date:   2020-12-24 00:41:27 +0800
 categories: jekyll update
 ---
