@@ -1,0 +1,23 @@
+---
+layout: post
+title: About Me
+date: '2014-09-03 11:36:40'
+---
+
+新浪微博 [@Tiger_张虎](http://weibo.com/zhanghusz)
+
+#项目
+
+* 云巴 ([yunba.io](http://yunba.io/)) 创始人。
+* JPush 创始人，原CTO。JPush 是一个Android/iOS应用的第三方云推送系统。
+* Oracle VM。创始团队成员。
+#兴趣
+
+* OS/Virtualization: Linux, Xen, OpenStack, CloudStack
+* Message System: XMPP, MQTT, RabbitMQ
+* Cache, key/value System: Couchbase
+* Language/Platform: C/C++, Python/Django, Erlang/OTP, Java/Scala, Javascript/Node.js
+* Application: Nginx
+* Library/Framework: libev
+* Cluster Framework: Corosync, moxi
+* To Be Continued…
