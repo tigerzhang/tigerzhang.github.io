@@ -1,3 +1,8 @@
+---
+layout: post
+title:  "AI 资料"
+categories: AI CNN
+---
 # AI 资料 #
 
 * [CNN Explainer][CNN-Explainer]。可视化 CNN 过程
