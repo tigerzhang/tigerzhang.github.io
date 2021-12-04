@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Couchbase介绍，更好的Cache系统 | Tiger’s Blog</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="Couchbase介绍，更好的Cache系统" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="在移动互联网时代，我们面对的是更多的客户端，更低的请求延迟，这当然需要对数据做大量的 Cache 以提高读写速度。 #术语" />
+<meta property="og:description" content="在移动互联网时代，我们面对的是更多的客户端，更低的请求延迟，这当然需要对数据做大量的 Cache 以提高读写速度。 #术语" />
+<link rel="canonical" href="http://localhost:4000/2014/09/03/couchbase.html" />
+<meta property="og:url" content="http://localhost:4000/2014/09/03/couchbase.html" />
+<meta property="og:site_name" content="Tiger’s Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2014-09-03T12:05:24+08:00" />
+<script type="application/ld+json">
+{"url":"http://localhost:4000/2014/09/03/couchbase.html","headline":"Couchbase介绍，更好的Cache系统","dateModified":"2014-09-03T12:05:24+08:00","datePublished":"2014-09-03T12:05:24+08:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2014/09/03/couchbase.html"},"description":"在移动互联网时代，我们面对的是更多的客户端，更低的请求延迟，这当然需要对数据做大量的 Cache 以提高读写速度。 #术语","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Tiger's Blog" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Tiger&#39;s Blog</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Couchbase介绍，更好的Cache系统</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2014-09-03T12:05:24+08:00" itemprop="datePublished">Sep 3, 2014
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>在移动互联网时代，我们面对的是更多的客户端，更低的请求延迟，这当然需要对数据做大量的 Cache 以提高读写速度。
+#术语</p>
+
+<ul>
+  <li>节点：指集群里的一台服务器。
+#现有 Cache 系统的特点</li>
+</ul>
+
+<p>目前业界使用得最多的 Cache 系统主要是 memcached 和 redis。 这两个 Cache 系统都有都有很大的用户群，可以说是比较成熟的解决方案，也是很多系统当然的选择。 不过，在使用 memcached 和 redis 过程中，还是碰到了不少的问题和局限：</p>
+
+<ul>
+  <li>Cluster 支持不够。在扩容、负载均衡、高可用等方面存在明显不足。</li>
+  <li>持久化支持不好，出现问题后恢复的代价大。memcached 完全不支持持久化，redis 的持久化会造成系统间歇性的负载很高。</li>
+</ul>
+
+<p>#我期待的理想 Cache 系统</p>
+
+<p>##良好的 cluster 支持</p>
+
+<ul>
+  <li>Key 可以动态分散（Auto Sharding）在不同的服务器上，可以通过动态添加服务器节点增加系统容量。</li>
+  <li>没有单点失效，任何一个单点都不会造成数据不可访问。</li>
+  <li>读写负载可以均匀分布在系统的不同节点上。</li>
+</ul>
+
+<p>##支持异步持久化支持</p>
+
+<ul>
+  <li>方便快速恢复，甚至可以直接用作 key/value 数据库。
+经常在跟业界朋友交流时，会提到用 key 分段的方法来做容量扩展以及负载均衡。但是用静态的 key 分段会有不少问题：</li>
+  <li>Cache 系统本身及使用 cache 的客户端都需要预设一个分段逻辑，这个逻辑后期如果需要调整将会非常困难。不能解决单点失效的问题，还需要额外的手段。运维需要更多的人为参与，避免 key 超出现有分区，一旦出现 key 找不到对应服务器，访问直接失败。</li>
+</ul>
+
+<p>#最接近需求的系统：Couchbase</p>
+
+<p>基于这些想法，我花了几天时间在 google, stack overflow, quora 上看了很多大家关于 cache cluster 的讨论，找到一个比较新系统 Couchbase。</p>
+
+<p><img src="/content/images/2014/Sep/74930860449119095.png" alt="mem vs cb" />
+memcached VS couchbase</p>
+
+<p>##Couchbase 的集群设计对等网</p>
+
+<p>Couchbase 群集所有点都是对等的，只是在创建群或者加入集群时需要指定一个主节点，一旦结点成功加入集群，所有的结点对等。</p>
+
+<p><img src="/content/images/2014/Sep/high_level_architecture.png" alt="high_level_architecture" /></p>
+
+<p>图片来源：couchbase.com</p>
+
+<p>对等网的优点是，集群中的任何节点失效，集群对外提供服务完全不会中断，只是集群的容量受影响。
+Smart Client</p>
+
+<p>由于 couchbase 是对等网集群，所有的节点都可以同时对客户端提供服务，这就需要有方法把集群的节点信息暴露给客户端，couchbase 提供了一套机制，客户端可以获取所有节点的状态以及节点的变动，由客户端根据集群的当前状态计算 key 所在的位置。
+vBucket</p>
+
+<p>vBucket 概念的引入，是 couchbase 实现 auto sharding，在线动态增减节点的重要基础。</p>
+
+<p>简单的解释 vBucket 可以从静态分片开始说起，静态分片的做法一般是用 key 算出一个 hash，得到对应的服务器，这个算法很简单，也容易理解。如以下代码所示：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>servers = ['server1:11211', 'server2:11211', 'server3:11211']
+server_for_key(key) = servers[hash(key) % servers.length]
+</code></pre></div></div>
+
+<p>但也有几个问题：</p>
+
+<ul>
+  <li>如果一台服务器失效，会造成该分片的所有 key 失效。</li>
+  <li>如果服务器容量不同，管理非常麻烦。</li>
+  <li>前面提到过，运维、配置非常不方便。</li>
+</ul>
+
+<p>为了把 key 跟服务器解耦合，couchbase 引入了 vBucket。可以说 vBucket 代表一个 cache 子集，主要特点：</p>
+
+<ul>
+  <li>key hash 对应一个 vBucket，不再直接对应服务器。</li>
+  <li>集群维护一个全局的 vBucket 与服务器对应表。</li>
+  <li>前面提到的 smart client 重要的功能就是同步 vBucket 表。</li>
+</ul>
+
+<p>如以下代码所示：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>servers = ['server1:11211', 'server2:11211', 'server3:11211']
+vbuckets = [0, 0, 1, 1, 2, 2]
+server_for_key(key) = servers[vbuckets[hash(key) % vbuckets.length]]
+</code></pre></div></div>
+
+<p><img src="/content/images/2014/Sep/74932204971389427.png" alt="vBucket" /></p>
+
+<p>图片来源：http://dustin.sallings.org/2010/06/29/memcached-vbuckets.html</p>
+
+<p>由于 vBucket 把 key 跟服务器的静态对应关系解耦合，基于 vBucket 可以实现一些非常强大有趣的功能，例如：</p>
+
+<ul>
+  <li>Replica，以 vBucket 为单位的主从备份。如果某个节点失效，只需要更新 vBucket 映射表，马上启用备份数据。</li>
+  <li>动态扩容。新增加一个节点后，可以把部分 vBucket 转移到新节点上，并更新 vBucket 映射表。</li>
+</ul>
+
+<p>vBucket 非常重要，以后可以单独写一篇文章分享。</p>
+
+<p>#总结</p>
+
+<ul>
+  <li>Couchbase 的对等网设计，smart client 直接获取整的集群的信息，在客户端实现负载均衡，整个集群没有单点失效，并且完全支持平行扩展。</li>
+  <li>vBucket 的引入，完全实现了 auto sharding，可以方便灵活的把数据的子集在不同节点上移动，以实现集群动态管理。</li>
+  <li>Couchbase 有一个非常专业的 web 管理界面，并且支持通过 RESTful API 管理，这也是 memcached, redis 不能企及的。</li>
+  <li>如果只是做 key/value 的 cache，Couchbase 可以完全取代 memcached。</li>
+  <li>Couchbase 已经被我们在生产环境中大量采用。</li>
+</ul>
+
+  </div><a class="u-url" href="/2014/09/03/couchbase.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Tiger&#39;s Blog</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Tiger&#39;s Blog</li><li><a class="u-email" href="mailto:iamzhanghu AT gmail.com">iamzhanghu AT gmail.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/tigerzhang"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">tigerzhang</span></a></li><li><a href="https://www.twitter.com/zhanghu"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">zhanghu</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>物联网、人工智能</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

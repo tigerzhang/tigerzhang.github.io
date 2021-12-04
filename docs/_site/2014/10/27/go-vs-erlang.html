@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Go vs Erlang | Tiger’s Blog</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="Go vs Erlang" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="因为 云巴 系统对高并发、低延迟的需求，我们对各个语言、平台做了很多的调研比较工作。这自然就包括致力于开发高并发应用的 Go 和 Erlang。" />
+<meta property="og:description" content="因为 云巴 系统对高并发、低延迟的需求，我们对各个语言、平台做了很多的调研比较工作。这自然就包括致力于开发高并发应用的 Go 和 Erlang。" />
+<link rel="canonical" href="http://localhost:4000/2014/10/27/go-vs-erlang.html" />
+<meta property="og:url" content="http://localhost:4000/2014/10/27/go-vs-erlang.html" />
+<meta property="og:site_name" content="Tiger’s Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2014-10-27T02:24:37+08:00" />
+<script type="application/ld+json">
+{"url":"http://localhost:4000/2014/10/27/go-vs-erlang.html","headline":"Go vs Erlang","dateModified":"2014-10-27T02:24:37+08:00","datePublished":"2014-10-27T02:24:37+08:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2014/10/27/go-vs-erlang.html"},"description":"因为 云巴 系统对高并发、低延迟的需求，我们对各个语言、平台做了很多的调研比较工作。这自然就包括致力于开发高并发应用的 Go 和 Erlang。","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Tiger's Blog" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Tiger&#39;s Blog</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Go vs Erlang</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2014-10-27T02:24:37+08:00" itemprop="datePublished">Oct 27, 2014
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>因为 <a href="http://yunba.io/">云巴</a> 系统对高并发、低延迟的需求，我们对各个语言、平台做了很多的调研比较工作。这自然就包括致力于开发高并发应用的 Go 和 Erlang。</p>
+
+<h1 id="并发">并发</h1>
+
+<p>Go 对高并发的支持通过 goroutine 实现。goroutine 可以理解为轻量级的 线程（thread）。同一个 Go 应用创建的 goroutine 共享地址空间。</p>
+
+<p>Erlang 的高并发通过轻量级 进程（process）实现，每一个进程都有独立的状态记录。</p>
+
+<p>另外，使用 goroutine 要注意，goroutine 运行完毕后，占用的内存放回内存池备用，不会释放。</p>
+
+<p>对于每一个任务都需要有独立状态的场景，Erlang 的 process 更有优势。</p>
+
+<h1 id="抢占式调度">抢占式调度</h1>
+
+<p>Erlang 的任务调度器有一个 reduction budget 的概念。进程的任何操作都会造成预算消耗，包括 函数调用、调用 BIF、进程堆垃圾回收、ETS 读写、发消息（目标邮箱堆积的消息越多，消耗越大）。Erlang 的 正则表达式库 也被做了修改以支持 reductions。所以如果进程在长时间执行正则表达式匹配，也一样会消耗 reductions，也会被抢占。</p>
+
+<p>Go 之前的调度器只在 syscall 发生时调度，优化后可以在任何函数调用时调度。但是要注意，如果在 goroutine 里写一个死循环，Go 的调度器不能有效抢占，同一个调度器的 其他 goroutine 会被挂起。</p>
+
+<h1 id="垃圾回收">垃圾回收</h1>
+
+<p>像 Java 一样，Go 的垃圾回收是全局的，这意味着一旦垃圾回收被触发，所有的 goroutine 都会被暂停，造成一段时间的业务延迟。</p>
+
+<p>Erlang 的垃圾回收是 进程 级别的，每一个进程都有自己独立的垃圾回收器，一个进程的垃圾回收被触发，不会造成其他进程被挂起。相对来说带来的业务延迟小。</p>
+
+<h1 id="错误处理">错误处理</h1>
+
+<p>Erlang 的每一个进程都有 进程 ID （PID），同时也可以给进程注册名字，也就是说每一个进程都有独立的身份，可以有效的监控每一个进程的状态。进程异常退出时，可以捕捉到退出事件，并重启进程（参见 otp 的 supervisor/worker）。</p>
+
+<p>Go 的 goroutine 没有身份识别，goroutine 的状态没办法监控。</p>
+
+<h1 id="动态反射">动态反射</h1>
+
+<p>Erlang 动态语言的特点，使它天然支持 REPL，另外 Erlang 支持 remote shell，我们可以在 Erlang 运行时，连接到 remote shell 与任何一个进程交互。这些特性对一个需要长期运行的复杂系统的维护带来了极大的便利。开发阶段也能有一些便利。</p>
+
+<p>Go 是静态语言，不支持 REPL。</p>
+
+<h1 id="静态编译">静态编译</h1>
+
+<p>Erlang 是动态语言，有所有动态语言的所有缺点：</p>
+
+<ul>
+  <li>运行速度慢</li>
+  <li>不能做早期错误检查，需要依赖全覆盖单元测试</li>
+  <li>代码规模大了，给编写带来困扰</li>
+</ul>
+
+<p>Erlang 现在也引入了 spec，对函数的参数返回值在编译时做类型检查，但是跟静态语言比起来效果差的很远。</p>
+
+<p>不过正是因为是动态语言，Erlang 实现了运行时代码替换，这个特性对一个需要长时间运行的工业级产品，是一个非常重要的功能。</p>
+
+<p>Go 是静态语言，运行速度快，编译时做严格的类型检查，可以避免很多隐患。</p>
+
+<h1 id="框架">框架</h1>
+
+<p>Erlang 的 OTP 框架支持服务器端开发常见的几种模式（applications, supervisors, wokers），方便代码的组织。</p>
+
+<p>Go 暂时没看到类似的框架。</p>
+
+<h1 id="第三方库支持">第三方库支持</h1>
+
+<p>Go 是一个相对比较新的语言，虽说现在很多项目都开始支持 Go，但很多第三方库的成熟度暂时不如 Erlang。</p>
+
+<h1 id="总结">总结</h1>
+
+<p>对于要求低延迟、高并发的后端服务，我们近期还是采用 Erlang 为主。但使用 Erlang 的过程中，Erlang 缺乏静态检查的手段，也是一个很麻烦的问题，目前的做法是要求大家都使用 IntelliJ IDEA 编写代码，可以通过 IDE 提前发现部分语言问题。</p>
+
+<p>同时我们会持续关注 Go 的发展。</p>
+
+<p>weibo: <a href="http://weibo.com/zhanghusz">@Tiger_张虎</a></p>
+
+  </div><a class="u-url" href="/2014/10/27/go-vs-erlang.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Tiger&#39;s Blog</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Tiger&#39;s Blog</li><li><a class="u-email" href="mailto:iamzhanghu AT gmail.com">iamzhanghu AT gmail.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/tigerzhang"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">tigerzhang</span></a></li><li><a href="https://www.twitter.com/zhanghu"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">zhanghu</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>物联网、人工智能</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

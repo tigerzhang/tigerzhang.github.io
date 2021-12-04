@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-12-24T12:38:21+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Tiger’s Blog</title><subtitle>物联网、人工智能</subtitle><entry><title type="html">恢复博客</title><link href="http://localhost:4000/jekyll/update/2020/12/24/welcome-to-jekyll.html" rel="alternate" type="text/html" title="恢复博客" /><published>2020-12-24T00:41:27+08:00</published><updated>2020-12-24T00:41:27+08:00</updated><id>http://localhost:4000/jekyll/update/2020/12/24/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2020/12/24/welcome-to-jekyll.html">&lt;p&gt;准备恢复博客。&lt;/p&gt;
+
+&lt;p&gt;还是托管在 github 上方便省事。&lt;/p&gt;
+
+&lt;p&gt;You’ll find this post in your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+
+&lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
+
+&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints 'Hi, Tom' to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Check out the &lt;a href=&quot;https://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">准备恢复博客。</summary></entry><entry><title type="html">AI 资料</title><link href="http://localhost:4000/ai/cnn/2020/12/24/AI-study.html" rel="alternate" type="text/html" title="AI 资料" /><published>2020-12-24T00:00:00+08:00</published><updated>2020-12-24T00:00:00+08:00</updated><id>http://localhost:4000/ai/cnn/2020/12/24/AI-study</id><content type="html" xml:base="http://localhost:4000/ai/cnn/2020/12/24/AI-study.html">&lt;h1 id=&quot;ai-资料&quot;&gt;AI 资料&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://poloclub.github.io/cnn-explainer/&quot;&gt;CNN Explainer&lt;/a&gt;。可视化 CNN 过程&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="AI" /><category term="CNN" /><summary type="html">AI 资料</summary></entry><entry><title type="html">第三方推送已死</title><link href="http://localhost:4000/2016/11/02/push-problem.html" rel="alternate" type="text/html" title="第三方推送已死" /><published>2016-11-02T08:41:55+08:00</published><updated>2016-11-02T08:41:55+08:00</updated><id>http://localhost:4000/2016/11/02/push-problem</id><content type="html" xml:base="http://localhost:4000/2016/11/02/push-problem.html">&lt;h3 id=&quot;国内第三方推送的起源&quot;&gt;国内第三方推送的起源&lt;/h3&gt;
+
+&lt;p&gt;2010 年左右，Android 手机在国内迅速发展，Google 的原生推送（C2DM，现在的 GCM）由于种种原因不能正常使用，当时的 Android 开发者使用各种办法来解决这个问题，其中就包括 Android 手机厂商开发出自己的推送方案。&lt;/p&gt;
+
+&lt;p&gt;对于大部分开发者来说，除了做一个 App，还要独立开发一套推送系统是件异常困难的事情。哪怕是用户数量很大的 App ，这也不是一件容易的事情。于是在 2011 年底，我产生了做独立第三方推送服务的想法，也就有了后来的极光推送。&lt;/p&gt;
+
+&lt;h3 id=&quot;推送消息能送达的关键&quot;&gt;推送消息能送达的关键&lt;/h3&gt;
+
+&lt;p&gt;这几年经常有业内的朋友探讨推送能否送达的关键因素。其实最重要的是 SDK 能否保活。&lt;/p&gt;
+
+&lt;p&gt;具体地说，有以下两方面：&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;1. SDK 如果不能及时地发起心跳，运营商网络的长连接会被断开。
+2. SDK 的任务如果被杀掉了，不能被拉起，消息就完全没有机会下发。
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;参考之前的文章：&lt;a href=&quot;https://tigerzhang.github.io/2016/11/02/mobile-push.html&quot;&gt;推送技术原理：移动无线网络长连接&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;如果 SDK 端不能有效地保活，那么无论服务器端怎么优化，都不能保证消息及时地送达。&lt;/p&gt;
+
+&lt;p&gt;对 Android 手机厂商来说，这里有一个矛盾的问题。对于各个 App 的推送达到的效果来说是好事，但这样做一定程度上破坏了Android系统的生态，增加了功耗，也违背了系统清理后台设计的初衷。手机厂商都希望自己出产的手机能有尽量长的待机时间，但是 App 定时在后台启动、维持心跳的行为，会极大地影响手机待机时间。&lt;/p&gt;
+
+&lt;p&gt;因此，最近几年，手机厂商为了控制后台服务，持续地推出各种限制手段。比如之前的心跳对齐，也就是不允许 App 任意使用 RTC 后台唤醒手机。还有更严厉的手段，就是定时清理所有后台服务，并且不允许服务通过监听广播自动拉起。&lt;/p&gt;
+
+&lt;h3 id=&quot;第三方推送已死&quot;&gt;第三方推送已死&lt;/h3&gt;
+
+&lt;p&gt;正如前文所提到的，最近主流的 Android 手机都会清理后台服务，禁止服务自动拉起，以前第三方推送服务商的各种 SDK 保活手段相继失效，这个问题从根本上动摇了 Android 第三方推送服务的基础，导致几乎所有的 Android 第三方推送服务都不能保证送达。&lt;/p&gt;
+
+&lt;p&gt;面对这样的问题，App 开发者该如何应对？&lt;/p&gt;
+
+&lt;h3 id=&quot;更合理的方案&quot;&gt;更合理的方案&lt;/h3&gt;
+
+&lt;p&gt;因为推送服务的特点，它最应该以系统原生服务的形态存在。在 iOS/Android 系统推出的早期，都考虑到了这个问题，iOS 有 APNs，Android 有 C2DM（GCM）。可惜的是，Android 的 GCM 在国内早已不能被有效使用，而 Android 方面没有试图解决这个问题，而把问题留给了手机厂商和 App 开发者。&lt;/p&gt;
+
+&lt;p&gt;考虑到推送服务的特点，我们自然而然就想到了通过厂商的推送通道来解决这个问题，就像在 iOS 上使用 APNs 一样。使用 App 内的消息通道发消息给 App，再通过厂商的推送通道唤醒 App，App 被打开后，接受消息通道的离线消息。&lt;/p&gt;
+
+&lt;p&gt;从目前的实践情况来看，这是解决后台进程被清理的最有效办法。
+&lt;img src=&quot;/assets/pic-1.png&quot; alt=&quot;厂商推送通道&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;国内-android-厂商推送通道现状&quot;&gt;国内 Android 厂商推送通道现状&lt;/h3&gt;
+
+&lt;p&gt;目前国内几个主要的 Android 厂商中，小米、华为 都有提供官方的推送服务。经过我们团队的验证，他们的推送服务在自己品牌的手机上，有相对稳定的送达率。目前表现最好的是小米，华为的推送延迟有时比较大，也不太稳定。&lt;/p&gt;
+
+&lt;p&gt;而另外的几家 OPPO、VIVO、金立 都没有官方的推送服务。&lt;/p&gt;
+
+&lt;p&gt;云巴近期推出了一键集成 小米、华为 推送的功能，方便开发者快速集成厂商的推送服务。但是对于没有提供推送服务的厂商，目前还没有特别好的办法。我们期待各主流手机厂商为了 App 有更好的体验，都能提供解决这个问题的方案。&lt;/p&gt;</content><author><name></name></author><summary type="html">国内第三方推送的起源</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/" /><media:content medium="image" url="http://localhost:4000/" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">推送技术原理：移动无线网络长连接</title><link href="http://localhost:4000/2016/11/02/mobile-push.html" rel="alternate" type="text/html" title="推送技术原理：移动无线网络长连接" /><published>2016-11-02T04:18:40+08:00</published><updated>2016-11-02T04:18:40+08:00</updated><id>http://localhost:4000/2016/11/02/mobile-push</id><content type="html" xml:base="http://localhost:4000/2016/11/02/mobile-push.html">&lt;p&gt;因为手机平台本身、电量、网络流量的限制，移动互联网应用在设计上跟传统 PC 上的应用很大不一样，需要根据手机本身的特点，尽量的节省电量和流量，同时又要尽可能的保证数据能及时到达客户端。&lt;/p&gt;
+
+&lt;p&gt;为了解决数据同步的问题，在手机平台上，常用的方法有2种。一种是定时去服务器上查询数据，也叫 Polling，还有一种手机跟服务器之间维护一个 TCP 长连接，当服务器有数据时，实时推送到客户端，也就是我们说的 Push。&lt;/p&gt;
+
+&lt;p&gt;从耗费的电量、流量和数据送达的及时性来说，Push 都会有明显的优势，但 Push 的实现和维护成本相对较高。在移动无线网络下维护长连接，相对也有一些技术上的难度。&lt;/p&gt;
+
+&lt;h3 id=&quot;移动无线网络的特点&quot;&gt;移动无线网络的特点&lt;/h3&gt;
+
+&lt;p&gt;因为 IP v4 的 IP address 量有限，运营商分配给手机终端的 IP 是运营商内网的 IP，手机要连接 Internet，就需要通过运营商的网关做一个网络地址转换（Network Address Translation，NAT）。简单的说运营商的网关需要维护一个外网 IP、端口到内网 IP、端口的对应关系，以确保内网的手机可以跟 Internet 的服务器通讯。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://www.cisco.com/en/US/i/100001-200000/110001-120000/119001-120000/119935.jpg&quot; alt=&quot;cisco PLMN&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;图片源自 cisco.com.&lt;/p&gt;
+
+&lt;p&gt;NAT 功能由图中的 GGSN 模块实现。&lt;/p&gt;
+
+&lt;p&gt;大部分移动无线网络运营商都在链路一段时间没有数据通讯时，会淘汰 NAT 表中的对应项，造成链路中断。&lt;/p&gt;
+
+&lt;h3 id=&quot;android-平台上长连接的实现&quot;&gt;Android 平台上长连接的实现&lt;/h3&gt;
+
+&lt;p&gt;为了不让 NAT 表失效，我们需要定时的发心跳，以刷新 NAT 表项，避免被淘汰。&lt;/p&gt;
+
+&lt;p&gt;Android 上定时运行任务常用的方法有2种，一种方法用 Timer，另一种是 AlarmManager。&lt;/p&gt;
+
+&lt;h4 id=&quot;timer&quot;&gt;Timer&lt;/h4&gt;
+
+&lt;p&gt;Android 的 Timer 类可以用来计划需要循环执行的任务，Timer 的问题是它需要用 WakeLock 让 CPU 保持唤醒状态，这样会大量消耗手机电量，大大减短手机待机时间。这种方式不能满足我们的需求。&lt;/p&gt;
+
+&lt;h4 id=&quot;alarmmanager&quot;&gt;AlarmManager&lt;/h4&gt;
+
+&lt;p&gt;AlarmManager 是 Android 系统封装的用于管理 RTC 的模块，RTC (Real Time Clock) 是一个独立的硬件时钟，可以在 CPU 休眠时正常运行，在预设的时间到达时，通过中断唤醒 CPU。&lt;/p&gt;
+
+&lt;p&gt;这意味着，如果我们用 AlarmManager 来定时执行任务，CPU 可以正常的休眠，只有在需要运行任务时醒来一段很短的时间。&lt;/p&gt;
+
+&lt;h3 id=&quot;服务器设计&quot;&gt;服务器设计&lt;/h3&gt;
+
+&lt;p&gt;当有大量的手机终端需要与服务器维持长连接时，对服务器的设计会是一个很大的挑战。&lt;/p&gt;
+
+&lt;p&gt;假设一台服务器维护10万个长连接，当有1000万用户量时，需要有多达100台的服务器来维护这些用户的长连接，这里还不算用于做备份的服务器，这将会是一个巨大的成本问题。那就需要我们尽可能提高单台服务器接入用户的量，也就是业界已经讨论很久了的 C10K 问题。&lt;/p&gt;</content><author><name></name></author><summary type="html">因为手机平台本身、电量、网络流量的限制，移动互联网应用在设计上跟传统 PC 上的应用很大不一样，需要根据手机本身的特点，尽量的节省电量和流量，同时又要尽可能的保证数据能及时到达客户端。</summary></entry><entry><title type="html">引用计数 vs. GC</title><link href="http://localhost:4000/2016/08/18/arc-vs-gc.html" rel="alternate" type="text/html" title="引用计数 vs. GC" /><published>2016-08-18T06:45:50+08:00</published><updated>2016-08-18T06:45:50+08:00</updated><id>http://localhost:4000/2016/08/18/arc-vs-gc</id><content type="html" xml:base="http://localhost:4000/2016/08/18/arc-vs-gc.html">&lt;h2 id=&quot;内存管理问题&quot;&gt;内存管理问题&lt;/h2&gt;
+&lt;p&gt;内存管理是编程过程中的一个经典问题，早期在 C 语言时代，几乎都靠 malloc/free 手动管理内存。随着各个平台的发展，到现在被广泛采用的主要有两个方法：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;引用计数 (ARC，Automatic Reference Counting)&lt;/li&gt;
+  &lt;li&gt;GC (Garbage Collection)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;管理方法-arcgc&quot;&gt;管理方法 ARC/GC&lt;/h2&gt;
+&lt;p&gt;因为 Java 的流行，GC 被广泛的认知。GC 简单的说是定期查找不再使用的对象，释放对象占用的内存。&lt;/p&gt;
+
+&lt;p&gt;基于 GC，申请的对象不需要手动释放，只需要确认对象在不再需要时，不再被其他对象引用。&lt;/p&gt;
+
+&lt;p&gt;引用计数早期主要用于底层系统，比如文件系统的 inode 管理，后来 C++ 的 boost 库实现了一套完整的 ARC，目前流行的系统还有 Objective C 也是采用的 ARC。&lt;/p&gt;
+
+&lt;p&gt;ARC 的特点是，一个对象被引用时，引用计数增加 1，引用对象释放时，引用计数减少 1，如果引用计数为 0，释放对象。&lt;/p&gt;
+
+&lt;h2 id=&quot;比较&quot;&gt;比较&lt;/h2&gt;
+
+&lt;p&gt;因为 ARC 和 GC 的不同策略，对编程的几个方面的影响。&lt;/p&gt;
+
+&lt;h4 id=&quot;性能&quot;&gt;性能&lt;/h4&gt;
+&lt;p&gt;GC 需要一套额外的系统跟踪分配的内存，分析哪些内存需要释放，相对来说就需要更多的计算。这也是为什么对性能敏感的场景不采用 GC 的原因，比如，高性能的服务端程序，资源有限的嵌入式设备（iOS 就没有采用 GC）。&lt;/p&gt;
+
+&lt;p&gt;ARC 由开发者自己来管理资源在什么时候释放，不需要额外的资源，所以性能没有损失。&lt;/p&gt;
+
+&lt;h4 id=&quot;延迟&quot;&gt;延迟&lt;/h4&gt;
+&lt;p&gt;GC 回收内存时，需要完全暂停当前程序，这会给程序带来难以预测的一个延迟期。如果需要回收的资源很多，这个延迟可能会非常大。&lt;/p&gt;
+
+&lt;p&gt;ARC 在资源引用为 0 时立即释放，没有不可预测的延迟。&lt;/p&gt;
+
+&lt;h4 id=&quot;编程难度&quot;&gt;编程难度&lt;/h4&gt;
+&lt;p&gt;不难看出，GC 在性能、延迟等方面有明显的缺点，为什么 GC 还会被广泛采用呢？&lt;/p&gt;
+
+&lt;p&gt;GC 带来的最大好处是不需要开发者手动管理内存分配，这大大降低了编程难度，同时可以大幅减少跟内存管理相关的 Bug：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;悬空指针。指针指向的内存被其他代码释放&lt;/li&gt;
+  &lt;li&gt;重复释放内存&lt;/li&gt;
+  &lt;li&gt;内存泄漏。申请的内存没释放&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;不过使用 GC 并不代表可以完全不用理解内存管理，如果对象的引用关系跟想象的不一致，&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GC 也会有内存泄漏的问题&lt;/code&gt;。&lt;/p&gt;
+
+&lt;p&gt;我们之前理解的&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;内存泄漏&lt;/code&gt; 是指一个分配的内存没有被释放造成的。而 GC 平台下的内存泄漏是指&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;对象有引用而开发者不知道&lt;/code&gt;，比如：&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ObjectA -&amp;gt; ObjectB&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;ObjectB 使用完后，我们没有及时把 ObjectA 引用 ObjectB 的指针设置为 NULL，这时， ObjectB 不会被 GC 回收。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;对比表格&lt;/li&gt;
+&lt;/ul&gt;
+&lt;table border=&quot;2&quot;&gt;
+&lt;tr&gt;
+&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+&lt;td&gt;时机&lt;/td&gt;
+&lt;td&gt;性能&lt;/td&gt;
+&lt;td&gt;延迟&lt;/td&gt;
+&lt;td&gt;编程难度&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ARC&lt;/td&gt;
+&lt;td&gt;引用计数为 0 马上回收&lt;/td&gt;
+&lt;td&gt;快&lt;/td&gt;
+&lt;td&gt;小&lt;/td&gt;
+&lt;td&gt;较大&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;GC&lt;/td&gt;
+&lt;td&gt;定时扫描清理&lt;/td&gt;
+&lt;td&gt;慢&lt;/td&gt;
+&lt;td&gt;大&lt;/td&gt;
+&lt;td&gt;较小&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;怎么选择-arc-or-gc&quot;&gt;怎么选择 ARC or GC&lt;/h2&gt;
+
+&lt;p&gt;开发一个项目时，采用什么样的平台，跟实际面对的场景有很大关系，没有一个技术是用来解决所有问题的。&lt;/p&gt;
+
+&lt;p&gt;一般来说，对延迟和性能不敏感的系统，可以考虑带 GC 的平台，比如 Java、Go 等来开发，通常可以提高开发效率。&lt;/p&gt;
+
+&lt;p&gt;如果需要对系统的性能有良好的控制，或者平台的资源有限，ARC 是更好的选择。比如操作系统、数据库等选择 C 或者 C++。比如 iOS 的 Objective C 就是采用 ARC，实际来看比使用 Java (GC) 的 Android 平台的表现要好太多。&lt;/p&gt;
+
+&lt;p&gt;但是 ARC 平台一般对开发者要求要更高。&lt;/p&gt;
+
+&lt;p&gt;最近出现的新语言 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Rust&lt;/code&gt; 采用的是 ARC，但是 Rust 会在代码编译阶段对内存、指针的使用做严格的分析和检查，确保程序没有内存管理问题。相当于把 GC 的一部分工作移到编译阶段，这样程序的运行性能几乎没有损失，同时又大大减少内存管理相关的 Bug。&lt;/p&gt;
+
+&lt;p&gt;我的观察从 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C++11&lt;/code&gt; 正式吸纳 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;boost&lt;/code&gt; 的 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;smart pointer&lt;/code&gt; 后，C++ 在内存管理方面比之前有极大的提升，如果严格的按照 smart pointer 的规范，同样可以减少内存管理的风险。Rust 就有点像一个严格的 C++11 编译系统。&lt;/p&gt;
+
+&lt;p&gt;支持 GC 的平台里面有一个特殊的，就是 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Erlang&lt;/code&gt;。Erlang 的 GC 是进程级别的(Erlang 的轻量级进程），意味着 GC 发生时，只暂停当前进程，其他进程不受影响。另外，Erlang 程序往往会运行海量的进程，相当于把 GC 分散开了，所以 Erlang 的 GC 一般不会产生明显的延迟。&lt;/p&gt;
+
+&lt;p&gt;了解这些细节，在面对具体问题时，能帮你做出正确的选择。&lt;/p&gt;
+
+&lt;p&gt;欢迎来微博留下您的意见：http://weibo.com/2255454164/E48lBE9pU&lt;/p&gt;</content><author><name></name></author><summary type="html">内存管理问题 内存管理是编程过程中的一个经典问题，早期在 C 语言时代，几乎都靠 malloc/free 手动管理内存。随着各个平台的发展，到现在被广泛采用的主要有两个方法：</summary></entry><entry><title type="html">Parse 关停与开发者服务健康发展</title><link href="http://localhost:4000/2016/05/08/parse.html" rel="alternate" type="text/html" title="Parse 关停与开发者服务健康发展" /><published>2016-05-08T04:31:13+08:00</published><updated>2016-05-08T04:31:13+08:00</updated><id>http://localhost:4000/2016/05/08/parse</id><content type="html" xml:base="http://localhost:4000/2016/05/08/parse.html">&lt;h2 id=&quot;parse-关停&quot;&gt;Parse 关停&lt;/h2&gt;
+&lt;p&gt;2016年1月28日，Parse 官方宣布将于1年后关闭 Parse 服务。这应该是这几天以来开发者服务市场，或者移动互联网开发者圈子里最为震撼的一个消息了。&lt;/p&gt;
+
+&lt;p&gt;Parse 在开发者服务领域里很有影响力，有很多的使用开发者，产品也比较完整、专业，就拿他们的开发者文档来说，对我的&lt;a href=&quot;http://zhang.hu/about-me/&quot;&gt;两次创业&lt;/a&gt;都产生了很大的影响。当初 Parse 被 Facebook 收购也引起了很大的关注。&lt;/p&gt;
+
+&lt;p&gt;种种原因，让我们听到 Parse 将被关停的消息后，都会觉得特别突然。&lt;/p&gt;
+
+&lt;p&gt;在冷静思考几天后，我试图理解为什么 Facebook 会在 Parse 成长迅速的情况下，依然选择了关停它。&lt;/p&gt;
+
+&lt;p&gt;猜测大概有几个原因：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;虽然 Parse 的确发展得很快，但是 AWS 这些原来的云计算服务商也在不断地推出更多的服务，也逐渐覆盖了 Parse 的后端服务范围。看起来 Parse 也没有足够的能力与 AWS 这些行业巨头正面竞争。&lt;/li&gt;
+  &lt;li&gt;Parse 的用户数量增长得很快，然而，由于 Parse 的价格策略，很多用户在使用免费服务的基础下就可以满足需求。从而造成了 Parse 无法盈利，甚至是面临着用户越多，成本越高，亏损越严重的问题。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;我们作为一个已经为开发者服务4年多的团队，自然要思考如何让我们的产品可以持续健康地发展。总结一下这几年的一些心得。&lt;/p&gt;
+
+&lt;h2 id=&quot;避免与巨头正面竞争&quot;&gt;避免与巨头正面竞争&lt;/h2&gt;
+
+&lt;p&gt;Parse 给我们的感觉是一个小而美的团队，但是最近一两年来，Parse 把 BaaS 的面越做越广，涉及了好几个种类的服务。显而易见，在给开发者带来便利的同时，这也拉长了产品线，降低了专业度。除此以外 Parse 的一些服务也开始跟行业巨头交叉竞争。&lt;/p&gt;
+
+&lt;p&gt;一旦和行业巨头的产品正面交锋，如果没有办法在服务质量、服务能力上取得明显优势，就会极大影响产品的议价能力、生存能力。&lt;/p&gt;
+
+&lt;p&gt;要知道，小团队不可能，也不能跟巨头同时在多个领域内展开竞争。一个小团队如果能在与巨头的竞争当中生存下来，我想其中一个至关重要的原因就是产品能够在一个细分领域内占据独特的优势。&lt;/p&gt;
+
+&lt;h2 id=&quot;合理的价格策略&quot;&gt;合理的价格策略&lt;/h2&gt;
+
+&lt;p&gt;这几年的互联网创业给大家留下一个印象，在互联网时代，不论是什么样的服务，都得免费，一旦你收费了，就不能叫“互联网思维”了。以我们所做的开发者服务为例，很多人也认为收费是不对的，而是应该通过免费的手段迅速占领市场，之后再通过其他手段来变现。&lt;/p&gt;
+
+&lt;p&gt;诚然，免费或低收费的开发者服务对于许多开发者来说是一件看起来“很有利”的事情，但是从长远看来，往往弊大于利。&lt;/p&gt;
+
+&lt;p&gt;要知道，一旦小团队没有设置一个合理的价格策略，盲目地使用“免费战略”，为了生存下去，要么通过其他手段来变现，要么通过融资来解决问题。&lt;/p&gt;
+
+&lt;h3 id=&quot;变现手段的问题&quot;&gt;变现手段的问题&lt;/h3&gt;
+&lt;p&gt;就目前国内的情况看，常见的免费或者低收费开发者服务的变现手段包括：挖掘客户的数据卖扩展服务、通过客户的 App 分发广告。&lt;/p&gt;
+
+&lt;p&gt;这些手段都有着明显的问题。&lt;/p&gt;
+
+&lt;p&gt;其一，作为开发者服务，应该秉承客户所有数据的所有权是归客户所有的原则。虽然可以在使用者协议里要求取得免费用户的数据使用权，但是一个提供基础服务的产品，如果通过挖掘客户的数据来获取利润，就会让付费用户对自身数据的安全产生疑虑。&lt;/p&gt;
+
+&lt;p&gt;其二，通过客户 App 分发广告这个手段本身就是上不了台面的，其中存在违法的问题。真正看重产品的客户应该都会远离这种服务商。&lt;/p&gt;
+
+&lt;h3 id=&quot;持续运营的问题&quot;&gt;持续运营的问题&lt;/h3&gt;
+&lt;p&gt;如果产品的收费策略不能保障自身的正常运营，发展到一定阶段就势必面临着生存问题。&lt;/p&gt;
+
+&lt;p&gt;好比 Parse，Parse 的免费额度设置得很低，收费远远低于实际的成本，客户发展得越快，成本的压力也就越大。&lt;/p&gt;
+
+&lt;p&gt;最近几年资本市场比较活跃，很多创业团队一开始就想通过融资来解决资金问题。但融资更多的是为了解决发展壮大的问题，如果产品本身并不具备盈利能力，想要依靠融资来帮助产品持续发展是行不通的。&lt;/p&gt;
+
+&lt;p&gt;价格体现价值，免费或低收费的服务在短期内对于用户来说的确很受益，但是长远来看，当产品无法保持盈利而没有办法继续生存的时候，对用户的损伤是远远大于短期利益的。即使免费服务的背后拥有一个资金雄厚的“靠山”作支撑，任何的资金集团也都会为了主体的利益而选择及时“止损”。&lt;/p&gt;
+&lt;h2 id=&quot;总结&quot;&gt;总结&lt;/h2&gt;
+&lt;p&gt;小团队要持续健康地发展，有几点心得：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;专注一个点，做到极致，让产品拥有核心竞争力；&lt;/li&gt;
+  &lt;li&gt;谨慎扩展业务范围；&lt;/li&gt;
+  &lt;li&gt;产品能说服市场，有盈利模式，而不是仅仅说服投资人；&lt;/li&gt;
+  &lt;li&gt;盈利可以随着核心业务发展而提升。&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">Parse 关停 2016年1月28日，Parse 官方宣布将于1年后关闭 Parse 服务。这应该是这几天以来开发者服务市场，或者移动互联网开发者圈子里最为震撼的一个消息了。</summary></entry><entry><title type="html">EGO 访谈：创业如何才能真正快起来</title><link href="http://localhost:4000/2016/01/31/ego-interview.html" rel="alternate" type="text/html" title="EGO 访谈：创业如何才能真正快起来" /><published>2016-01-31T14:14:00+08:00</published><updated>2016-01-31T14:14:00+08:00</updated><id>http://localhost:4000/2016/01/31/ego-interview</id><content type="html" xml:base="http://localhost:4000/2016/01/31/ego-interview.html">&lt;p&gt;http://chuansong.me/n/2127170&lt;/p&gt;</content><author><name></name></author><summary type="html">http://chuansong.me/n/2127170</summary></entry><entry><title type="html">图灵访谈：一个优秀的软件工程师必然是全栈工程师</title><link href="http://localhost:4000/2016/01/31/ituring-interview.html" rel="alternate" type="text/html" title="图灵访谈：一个优秀的软件工程师必然是全栈工程师" /><published>2016-01-31T14:12:12+08:00</published><updated>2016-01-31T14:12:12+08:00</updated><id>http://localhost:4000/2016/01/31/ituring-interview</id><content type="html" xml:base="http://localhost:4000/2016/01/31/ituring-interview.html">&lt;p&gt;http://www.ituring.com.cn/article/199457&lt;/p&gt;</content><author><name></name></author><summary type="html">http://www.ituring.com.cn/article/199457</summary></entry><entry><title type="html">2014年的演讲</title><link href="http://localhost:4000/2015/02/15/speech-2014.html" rel="alternate" type="text/html" title="2014年的演讲" /><published>2015-02-15T09:17:38+08:00</published><updated>2015-02-15T09:17:38+08:00</updated><id>http://localhost:4000/2015/02/15/speech-2014</id><content type="html" xml:base="http://localhost:4000/2015/02/15/speech-2014.html">&lt;p&gt;2014年参加了多场演讲，其中感觉还不错的几场总结下：&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;时间：2014－07-19
+地点：深圳
+活动：InfoQ Arch Summit 深圳
+题目：实时系统架构与实践
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;InfoQ 2014年深圳架构师峰会组织的很不错，演讲现场的音效也很好，讲起来很舒服。&lt;/p&gt;
+
+&lt;p&gt;这次分享的思路是介绍下云巴的总体架构，各个模块在设计中的考虑和尝试去解决的问题。&lt;/p&gt;
+
+&lt;p&gt;在会场还有机会跟阿里的&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;章文嵩&lt;/code&gt;当面讨教了一些关于阿里云的疑问。也认识了 iOS 开发者中很有人气的&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;唐巧&lt;/code&gt;同学。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;视频链接：http://www.infoq.com/cn/presentations/framework-and-implementation-of-real-time-system&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;时间：2014－12-13
+地点：南京
+活动：ECUG 2014
+题目：基于Ansible的自动化运维实践
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;第二次参加 ECUG，要感谢&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;七牛&lt;/code&gt;的同学们提供的机会。&lt;/p&gt;
+
+&lt;p&gt;演讲那天正好是南京的公祭日，印象特别深刻。在会场又碰到了豌豆荚的 goroutine，现在去了苹果的 Asta。&lt;/p&gt;
+
+&lt;p&gt;运营的自动化实践我们目前进行的比较成功，产品从上线到现在，没有配置一个专门的运维，都靠自动化的工具管理，感觉很高效，也不容易犯低级错误。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;视频链接：http://my.tv.sohu.com/us/242861154/77607305.shtml&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;期待2015年更多的分享。&lt;/p&gt;</content><author><name></name></author><summary type="html">2014年参加了多场演讲，其中感觉还不错的几场总结下：</summary></entry><entry><title type="html">Go vs Erlang</title><link href="http://localhost:4000/2014/10/27/go-vs-erlang.html" rel="alternate" type="text/html" title="Go vs Erlang" /><published>2014-10-27T02:24:37+08:00</published><updated>2014-10-27T02:24:37+08:00</updated><id>http://localhost:4000/2014/10/27/go-vs-erlang</id><content type="html" xml:base="http://localhost:4000/2014/10/27/go-vs-erlang.html">&lt;p&gt;因为 &lt;a href=&quot;http://yunba.io/&quot;&gt;云巴&lt;/a&gt; 系统对高并发、低延迟的需求，我们对各个语言、平台做了很多的调研比较工作。这自然就包括致力于开发高并发应用的 Go 和 Erlang。&lt;/p&gt;
+
+&lt;h1 id=&quot;并发&quot;&gt;并发&lt;/h1&gt;
+
+&lt;p&gt;Go 对高并发的支持通过 goroutine 实现。goroutine 可以理解为轻量级的 线程（thread）。同一个 Go 应用创建的 goroutine 共享地址空间。&lt;/p&gt;
+
+&lt;p&gt;Erlang 的高并发通过轻量级 进程（process）实现，每一个进程都有独立的状态记录。&lt;/p&gt;
+
+&lt;p&gt;另外，使用 goroutine 要注意，goroutine 运行完毕后，占用的内存放回内存池备用，不会释放。&lt;/p&gt;
+
+&lt;p&gt;对于每一个任务都需要有独立状态的场景，Erlang 的 process 更有优势。&lt;/p&gt;
+
+&lt;h1 id=&quot;抢占式调度&quot;&gt;抢占式调度&lt;/h1&gt;
+
+&lt;p&gt;Erlang 的任务调度器有一个 reduction budget 的概念。进程的任何操作都会造成预算消耗，包括 函数调用、调用 BIF、进程堆垃圾回收、ETS 读写、发消息（目标邮箱堆积的消息越多，消耗越大）。Erlang 的 正则表达式库 也被做了修改以支持 reductions。所以如果进程在长时间执行正则表达式匹配，也一样会消耗 reductions，也会被抢占。&lt;/p&gt;
+
+&lt;p&gt;Go 之前的调度器只在 syscall 发生时调度，优化后可以在任何函数调用时调度。但是要注意，如果在 goroutine 里写一个死循环，Go 的调度器不能有效抢占，同一个调度器的 其他 goroutine 会被挂起。&lt;/p&gt;
+
+&lt;h1 id=&quot;垃圾回收&quot;&gt;垃圾回收&lt;/h1&gt;
+
+&lt;p&gt;像 Java 一样，Go 的垃圾回收是全局的，这意味着一旦垃圾回收被触发，所有的 goroutine 都会被暂停，造成一段时间的业务延迟。&lt;/p&gt;
+
+&lt;p&gt;Erlang 的垃圾回收是 进程 级别的，每一个进程都有自己独立的垃圾回收器，一个进程的垃圾回收被触发，不会造成其他进程被挂起。相对来说带来的业务延迟小。&lt;/p&gt;
+
+&lt;h1 id=&quot;错误处理&quot;&gt;错误处理&lt;/h1&gt;
+
+&lt;p&gt;Erlang 的每一个进程都有 进程 ID （PID），同时也可以给进程注册名字，也就是说每一个进程都有独立的身份，可以有效的监控每一个进程的状态。进程异常退出时，可以捕捉到退出事件，并重启进程（参见 otp 的 supervisor/worker）。&lt;/p&gt;
+
+&lt;p&gt;Go 的 goroutine 没有身份识别，goroutine 的状态没办法监控。&lt;/p&gt;
+
+&lt;h1 id=&quot;动态反射&quot;&gt;动态反射&lt;/h1&gt;
+
+&lt;p&gt;Erlang 动态语言的特点，使它天然支持 REPL，另外 Erlang 支持 remote shell，我们可以在 Erlang 运行时，连接到 remote shell 与任何一个进程交互。这些特性对一个需要长期运行的复杂系统的维护带来了极大的便利。开发阶段也能有一些便利。&lt;/p&gt;
+
+&lt;p&gt;Go 是静态语言，不支持 REPL。&lt;/p&gt;
+
+&lt;h1 id=&quot;静态编译&quot;&gt;静态编译&lt;/h1&gt;
+
+&lt;p&gt;Erlang 是动态语言，有所有动态语言的所有缺点：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;运行速度慢&lt;/li&gt;
+  &lt;li&gt;不能做早期错误检查，需要依赖全覆盖单元测试&lt;/li&gt;
+  &lt;li&gt;代码规模大了，给编写带来困扰&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Erlang 现在也引入了 spec，对函数的参数返回值在编译时做类型检查，但是跟静态语言比起来效果差的很远。&lt;/p&gt;
+
+&lt;p&gt;不过正是因为是动态语言，Erlang 实现了运行时代码替换，这个特性对一个需要长时间运行的工业级产品，是一个非常重要的功能。&lt;/p&gt;
+
+&lt;p&gt;Go 是静态语言，运行速度快，编译时做严格的类型检查，可以避免很多隐患。&lt;/p&gt;
+
+&lt;h1 id=&quot;框架&quot;&gt;框架&lt;/h1&gt;
+
+&lt;p&gt;Erlang 的 OTP 框架支持服务器端开发常见的几种模式（applications, supervisors, wokers），方便代码的组织。&lt;/p&gt;
+
+&lt;p&gt;Go 暂时没看到类似的框架。&lt;/p&gt;
+
+&lt;h1 id=&quot;第三方库支持&quot;&gt;第三方库支持&lt;/h1&gt;
+
+&lt;p&gt;Go 是一个相对比较新的语言，虽说现在很多项目都开始支持 Go，但很多第三方库的成熟度暂时不如 Erlang。&lt;/p&gt;
+
+&lt;h1 id=&quot;总结&quot;&gt;总结&lt;/h1&gt;
+
+&lt;p&gt;对于要求低延迟、高并发的后端服务，我们近期还是采用 Erlang 为主。但使用 Erlang 的过程中，Erlang 缺乏静态检查的手段，也是一个很麻烦的问题，目前的做法是要求大家都使用 IntelliJ IDEA 编写代码，可以通过 IDE 提前发现部分语言问题。&lt;/p&gt;
+
+&lt;p&gt;同时我们会持续关注 Go 的发展。&lt;/p&gt;
+
+&lt;p&gt;weibo: &lt;a href=&quot;http://weibo.com/zhanghusz&quot;&gt;@Tiger_张虎&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">因为 云巴 系统对高并发、低延迟的需求，我们对各个语言、平台做了很多的调研比较工作。这自然就包括致力于开发高并发应用的 Go 和 Erlang。</summary></entry></feed>

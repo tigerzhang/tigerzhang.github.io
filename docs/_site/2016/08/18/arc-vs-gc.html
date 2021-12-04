@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>引用计数 vs. GC | Tiger’s Blog</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="引用计数 vs. GC" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="内存管理问题 内存管理是编程过程中的一个经典问题，早期在 C 语言时代，几乎都靠 malloc/free 手动管理内存。随着各个平台的发展，到现在被广泛采用的主要有两个方法：" />
+<meta property="og:description" content="内存管理问题 内存管理是编程过程中的一个经典问题，早期在 C 语言时代，几乎都靠 malloc/free 手动管理内存。随着各个平台的发展，到现在被广泛采用的主要有两个方法：" />
+<link rel="canonical" href="http://localhost:4000/2016/08/18/arc-vs-gc.html" />
+<meta property="og:url" content="http://localhost:4000/2016/08/18/arc-vs-gc.html" />
+<meta property="og:site_name" content="Tiger’s Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2016-08-18T06:45:50+08:00" />
+<script type="application/ld+json">
+{"url":"http://localhost:4000/2016/08/18/arc-vs-gc.html","headline":"引用计数 vs. GC","dateModified":"2016-08-18T06:45:50+08:00","datePublished":"2016-08-18T06:45:50+08:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2016/08/18/arc-vs-gc.html"},"description":"内存管理问题 内存管理是编程过程中的一个经典问题，早期在 C 语言时代，几乎都靠 malloc/free 手动管理内存。随着各个平台的发展，到现在被广泛采用的主要有两个方法：","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Tiger's Blog" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Tiger&#39;s Blog</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">引用计数 vs. GC</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2016-08-18T06:45:50+08:00" itemprop="datePublished">Aug 18, 2016
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h2 id="内存管理问题">内存管理问题</h2>
+<p>内存管理是编程过程中的一个经典问题，早期在 C 语言时代，几乎都靠 malloc/free 手动管理内存。随着各个平台的发展，到现在被广泛采用的主要有两个方法：</p>
+
+<ul>
+  <li>引用计数 (ARC，Automatic Reference Counting)</li>
+  <li>GC (Garbage Collection)</li>
+</ul>
+
+<h2 id="管理方法-arcgc">管理方法 ARC/GC</h2>
+<p>因为 Java 的流行，GC 被广泛的认知。GC 简单的说是定期查找不再使用的对象，释放对象占用的内存。</p>
+
+<p>基于 GC，申请的对象不需要手动释放，只需要确认对象在不再需要时，不再被其他对象引用。</p>
+
+<p>引用计数早期主要用于底层系统，比如文件系统的 inode 管理，后来 C++ 的 boost 库实现了一套完整的 ARC，目前流行的系统还有 Objective C 也是采用的 ARC。</p>
+
+<p>ARC 的特点是，一个对象被引用时，引用计数增加 1，引用对象释放时，引用计数减少 1，如果引用计数为 0，释放对象。</p>
+
+<h2 id="比较">比较</h2>
+
+<p>因为 ARC 和 GC 的不同策略，对编程的几个方面的影响。</p>
+
+<h4 id="性能">性能</h4>
+<p>GC 需要一套额外的系统跟踪分配的内存，分析哪些内存需要释放，相对来说就需要更多的计算。这也是为什么对性能敏感的场景不采用 GC 的原因，比如，高性能的服务端程序，资源有限的嵌入式设备（iOS 就没有采用 GC）。</p>
+
+<p>ARC 由开发者自己来管理资源在什么时候释放，不需要额外的资源，所以性能没有损失。</p>
+
+<h4 id="延迟">延迟</h4>
+<p>GC 回收内存时，需要完全暂停当前程序，这会给程序带来难以预测的一个延迟期。如果需要回收的资源很多，这个延迟可能会非常大。</p>
+
+<p>ARC 在资源引用为 0 时立即释放，没有不可预测的延迟。</p>
+
+<h4 id="编程难度">编程难度</h4>
+<p>不难看出，GC 在性能、延迟等方面有明显的缺点，为什么 GC 还会被广泛采用呢？</p>
+
+<p>GC 带来的最大好处是不需要开发者手动管理内存分配，这大大降低了编程难度，同时可以大幅减少跟内存管理相关的 Bug：</p>
+
+<ul>
+  <li>悬空指针。指针指向的内存被其他代码释放</li>
+  <li>重复释放内存</li>
+  <li>内存泄漏。申请的内存没释放</li>
+</ul>
+
+<p>不过使用 GC 并不代表可以完全不用理解内存管理，如果对象的引用关系跟想象的不一致，<code class="language-plaintext highlighter-rouge">GC 也会有内存泄漏的问题</code>。</p>
+
+<p>我们之前理解的<code class="language-plaintext highlighter-rouge">内存泄漏</code> 是指一个分配的内存没有被释放造成的。而 GC 平台下的内存泄漏是指<code class="language-plaintext highlighter-rouge">对象有引用而开发者不知道</code>，比如：</p>
+
+<p><code class="language-plaintext highlighter-rouge">ObjectA -&gt; ObjectB</code></p>
+
+<p>ObjectB 使用完后，我们没有及时把 ObjectA 引用 ObjectB 的指针设置为 NULL，这时， ObjectB 不会被 GC 回收。</p>
+
+<ul>
+  <li>对比表格</li>
+</ul>
+<table border="2">
+<tr>
+<td>&nbsp;</td>
+<td>时机</td>
+<td>性能</td>
+<td>延迟</td>
+<td>编程难度</td>
+</tr>
+<tr>
+<td>ARC</td>
+<td>引用计数为 0 马上回收</td>
+<td>快</td>
+<td>小</td>
+<td>较大</td>
+</tr>
+<tr>
+<td>GC</td>
+<td>定时扫描清理</td>
+<td>慢</td>
+<td>大</td>
+<td>较小</td>
+</tr>
+</table>
+
+<h2 id="怎么选择-arc-or-gc">怎么选择 ARC or GC</h2>
+
+<p>开发一个项目时，采用什么样的平台，跟实际面对的场景有很大关系，没有一个技术是用来解决所有问题的。</p>
+
+<p>一般来说，对延迟和性能不敏感的系统，可以考虑带 GC 的平台，比如 Java、Go 等来开发，通常可以提高开发效率。</p>
+
+<p>如果需要对系统的性能有良好的控制，或者平台的资源有限，ARC 是更好的选择。比如操作系统、数据库等选择 C 或者 C++。比如 iOS 的 Objective C 就是采用 ARC，实际来看比使用 Java (GC) 的 Android 平台的表现要好太多。</p>
+
+<p>但是 ARC 平台一般对开发者要求要更高。</p>
+
+<p>最近出现的新语言 <code class="language-plaintext highlighter-rouge">Rust</code> 采用的是 ARC，但是 Rust 会在代码编译阶段对内存、指针的使用做严格的分析和检查，确保程序没有内存管理问题。相当于把 GC 的一部分工作移到编译阶段，这样程序的运行性能几乎没有损失，同时又大大减少内存管理相关的 Bug。</p>
+
+<p>我的观察从 <code class="language-plaintext highlighter-rouge">C++11</code> 正式吸纳 <code class="language-plaintext highlighter-rouge">boost</code> 的 <code class="language-plaintext highlighter-rouge">smart pointer</code> 后，C++ 在内存管理方面比之前有极大的提升，如果严格的按照 smart pointer 的规范，同样可以减少内存管理的风险。Rust 就有点像一个严格的 C++11 编译系统。</p>
+
+<p>支持 GC 的平台里面有一个特殊的，就是 <code class="language-plaintext highlighter-rouge">Erlang</code>。Erlang 的 GC 是进程级别的(Erlang 的轻量级进程），意味着 GC 发生时，只暂停当前进程，其他进程不受影响。另外，Erlang 程序往往会运行海量的进程，相当于把 GC 分散开了，所以 Erlang 的 GC 一般不会产生明显的延迟。</p>
+
+<p>了解这些细节，在面对具体问题时，能帮你做出正确的选择。</p>
+
+<p>欢迎来微博留下您的意见：http://weibo.com/2255454164/E48lBE9pU</p>
+
+  </div><a class="u-url" href="/2016/08/18/arc-vs-gc.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Tiger&#39;s Blog</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Tiger&#39;s Blog</li><li><a class="u-email" href="mailto:iamzhanghu AT gmail.com">iamzhanghu AT gmail.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/tigerzhang"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">tigerzhang</span></a></li><li><a href="https://www.twitter.com/zhanghu"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">zhanghu</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>物联网、人工智能</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

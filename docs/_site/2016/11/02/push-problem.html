@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>第三方推送已死 | Tiger’s Blog</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="第三方推送已死" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="国内第三方推送的起源" />
+<meta property="og:description" content="国内第三方推送的起源" />
+<link rel="canonical" href="http://localhost:4000/2016/11/02/push-problem.html" />
+<meta property="og:url" content="http://localhost:4000/2016/11/02/push-problem.html" />
+<meta property="og:site_name" content="Tiger’s Blog" />
+<meta property="og:image" content="http://localhost:4000/" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2016-11-02T08:41:55+08:00" />
+<script type="application/ld+json">
+{"url":"http://localhost:4000/2016/11/02/push-problem.html","headline":"第三方推送已死","dateModified":"2016-11-02T08:41:55+08:00","datePublished":"2016-11-02T08:41:55+08:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2016/11/02/push-problem.html"},"description":"国内第三方推送的起源","image":"http://localhost:4000/","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Tiger's Blog" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Tiger&#39;s Blog</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">第三方推送已死</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2016-11-02T08:41:55+08:00" itemprop="datePublished">Nov 2, 2016
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h3 id="国内第三方推送的起源">国内第三方推送的起源</h3>
+
+<p>2010 年左右，Android 手机在国内迅速发展，Google 的原生推送（C2DM，现在的 GCM）由于种种原因不能正常使用，当时的 Android 开发者使用各种办法来解决这个问题，其中就包括 Android 手机厂商开发出自己的推送方案。</p>
+
+<p>对于大部分开发者来说，除了做一个 App，还要独立开发一套推送系统是件异常困难的事情。哪怕是用户数量很大的 App ，这也不是一件容易的事情。于是在 2011 年底，我产生了做独立第三方推送服务的想法，也就有了后来的极光推送。</p>
+
+<h3 id="推送消息能送达的关键">推送消息能送达的关键</h3>
+
+<p>这几年经常有业内的朋友探讨推送能否送达的关键因素。其实最重要的是 SDK 能否保活。</p>
+
+<p>具体地说，有以下两方面：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1. SDK 如果不能及时地发起心跳，运营商网络的长连接会被断开。
+2. SDK 的任务如果被杀掉了，不能被拉起，消息就完全没有机会下发。
+</code></pre></div></div>
+
+<p>参考之前的文章：<a href="https://tigerzhang.github.io/2016/11/02/mobile-push.html">推送技术原理：移动无线网络长连接</a></p>
+
+<p>如果 SDK 端不能有效地保活，那么无论服务器端怎么优化，都不能保证消息及时地送达。</p>
+
+<p>对 Android 手机厂商来说，这里有一个矛盾的问题。对于各个 App 的推送达到的效果来说是好事，但这样做一定程度上破坏了Android系统的生态，增加了功耗，也违背了系统清理后台设计的初衷。手机厂商都希望自己出产的手机能有尽量长的待机时间，但是 App 定时在后台启动、维持心跳的行为，会极大地影响手机待机时间。</p>
+
+<p>因此，最近几年，手机厂商为了控制后台服务，持续地推出各种限制手段。比如之前的心跳对齐，也就是不允许 App 任意使用 RTC 后台唤醒手机。还有更严厉的手段，就是定时清理所有后台服务，并且不允许服务通过监听广播自动拉起。</p>
+
+<h3 id="第三方推送已死">第三方推送已死</h3>
+
+<p>正如前文所提到的，最近主流的 Android 手机都会清理后台服务，禁止服务自动拉起，以前第三方推送服务商的各种 SDK 保活手段相继失效，这个问题从根本上动摇了 Android 第三方推送服务的基础，导致几乎所有的 Android 第三方推送服务都不能保证送达。</p>
+
+<p>面对这样的问题，App 开发者该如何应对？</p>
+
+<h3 id="更合理的方案">更合理的方案</h3>
+
+<p>因为推送服务的特点，它最应该以系统原生服务的形态存在。在 iOS/Android 系统推出的早期，都考虑到了这个问题，iOS 有 APNs，Android 有 C2DM（GCM）。可惜的是，Android 的 GCM 在国内早已不能被有效使用，而 Android 方面没有试图解决这个问题，而把问题留给了手机厂商和 App 开发者。</p>
+
+<p>考虑到推送服务的特点，我们自然而然就想到了通过厂商的推送通道来解决这个问题，就像在 iOS 上使用 APNs 一样。使用 App 内的消息通道发消息给 App，再通过厂商的推送通道唤醒 App，App 被打开后，接受消息通道的离线消息。</p>
+
+<p>从目前的实践情况来看，这是解决后台进程被清理的最有效办法。
+<img src="/assets/pic-1.png" alt="厂商推送通道" /></p>
+
+<h3 id="国内-android-厂商推送通道现状">国内 Android 厂商推送通道现状</h3>
+
+<p>目前国内几个主要的 Android 厂商中，小米、华为 都有提供官方的推送服务。经过我们团队的验证，他们的推送服务在自己品牌的手机上，有相对稳定的送达率。目前表现最好的是小米，华为的推送延迟有时比较大，也不太稳定。</p>
+
+<p>而另外的几家 OPPO、VIVO、金立 都没有官方的推送服务。</p>
+
+<p>云巴近期推出了一键集成 小米、华为 推送的功能，方便开发者快速集成厂商的推送服务。但是对于没有提供推送服务的厂商，目前还没有特别好的办法。我们期待各主流手机厂商为了 App 有更好的体验，都能提供解决这个问题的方案。</p>
+
+
+  </div><a class="u-url" href="/2016/11/02/push-problem.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Tiger&#39;s Blog</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Tiger&#39;s Blog</li><li><a class="u-email" href="mailto:iamzhanghu AT gmail.com">iamzhanghu AT gmail.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/tigerzhang"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">tigerzhang</span></a></li><li><a href="https://www.twitter.com/zhanghu"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">zhanghu</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>物联网、人工智能</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
