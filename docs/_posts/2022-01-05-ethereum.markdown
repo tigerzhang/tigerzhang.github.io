@@ -1,0 +1,52 @@
+---
+layout: post
+title:  "以太坊"
+date:   2022-01-05 19:11:00 +0800
+categories: blockchain nft
+---
+
+最近因为一些机缘巧合，看了下 `区块链`、`NFT` 相关的东西。
+
+`区块链`，除了著名的 `比特币` 外，最重要、使用最多的区块链，就是 `以太坊` 了。绝大部分的 `NFT`，都是发行在 `以太坊` 上。
+
+由于 `NFT` 的迅速发展，`以太坊` 最近几年市值大幅提升。
+
+2021年4月，以太坊市值 2910亿 美元，2017年一月，以太坊市值 71.2千万 美元。
+
+总结下怎么基于 `以太坊` 开发 DApp（分布式应用），交易，游戏等。
+
+什么是区块链
+
+* 什么是智能合约
+* 什么是以太币
+* 什么是 DApp
+
+# 什么是区块链
+
+区块链技术，让互不信任的参与者（用户），不需要一个认证中心点（银行），对一个数据的变更历史（公共记账本），可以达成一个共识。数据的变更历史不能被篡改，是记账系统的关键。
+
+简单的说，`区块链` 是个数据库，但是是一个去中心化的数据库。所有人都是可以读取、交易、保存历史所有变更，而且没有一个单一中心节点，可以修改历史数据。
+
+也存在私有化的区块链，由企业部署，用于追溯企业内部数据。
+
+# 什么是以太坊
+
+You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
+
+To add new posts, simply add a file in the `_posts` directory that follows the convention `YYYY-MM-DD-name-of-post.ext` and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.
+
+Jekyll also offers powerful support for code snippets:
+
+{% highlight ruby %}
+def print_hi(name)
+  puts "Hi, #{name}"
+end
+print_hi('Tom')
+#=> prints 'Hi, Tom' to STDOUT.
+{% endhighlight %}
+
+Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll Talk][jekyll-talk].
+
+[jekyll-docs]: https://jekyllrb.com/docs/home
+[jekyll-gh]:   https://github.com/jekyll/jekyll
+[jekyll-talk]: https://talk.jekyllrb.com/
