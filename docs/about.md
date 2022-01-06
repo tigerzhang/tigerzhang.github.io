@@ -1,18 +1,21 @@
 ---
 layout: page
-title: About
+title: 关于
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+#项目
 
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
+* 云巴 ([yunba.io](http://yunba.io/)) 创始人。
+* JPush 创始人，原CTO。JPush 是一个Android/iOS应用的第三方云推送系统。
+* Oracle VM。创始团队成员。
 
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
+#兴趣
 
+* OS/Virtualization: Linux, Xen, OpenStack, CloudStack
+* Message System: XMPP, MQTT, RabbitMQ
+* Cache, key/value System: Raft/LeveDB
+* Language: Rust
+* Other Language/Platform: C/C++, Python/Django, Erlang/OTP, Java/Spring, Javascript/Node.js
+* AI/CNN
 
-[jekyll-organization]: https://github.com/jekyll
