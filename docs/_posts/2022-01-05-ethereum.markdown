@@ -23,6 +23,8 @@ categories: blockchain nft
 
 # 什么是区块链
 
+`Blockchain` 不知道为什么被翻译成 `区块链`，从字面意思来看，应该翻译成 `块链`。
+
 区块链技术，让互不信任的参与者（用户），不需要一个认证中心点（银行），对一个数据的变更历史（公共记账本），可以达成一个共识。数据的变更历史不能被篡改，是记账系统的关键。
 
 简单的说，`区块链` 是个数据库，但是是一个去中心化的数据库。所有人都是可以读取、交易、保存历史所有变更，而且没有一个单一中心节点，可以修改历史数据。
@@ -31,22 +33,30 @@ categories: blockchain nft
 
 # 什么是以太坊
 
-You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
+`以太坊` 是一个开源的、去中心化的区块链。特点是能支持 `智能合约`。`智能合约` 本质上是区块链上的一段代码，当 `智能合约` 的触发条件满足时，会自动执行。
 
-To add new posts, simply add a file in the `_posts` directory that follows the convention `YYYY-MM-DD-name-of-post.ext` and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.
+因为 `智能合约` 这个功能，以太坊被称为 Ethereum Virtual Machine (EVM)，以太坊不仅可以用做支付或者保存数据。开发者可以基于 EVM 开发分布式应用 (DApp)，比如社交媒体、游戏、银行。
 
-Jekyll also offers powerful support for code snippets:
+但是，由于以太坊现在的计算成本高，实现这些并不容易。
 
-{% highlight ruby %}
-def print_hi(name)
-  puts "Hi, #{name}"
-end
-print_hi('Tom')
-#=> prints 'Hi, Tom' to STDOUT.
-{% endhighlight %}
+# 什么是智能合约
 
-Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll Talk][jekyll-talk].
+举个例子解释智能合约。假设 A 和 B 打一个赌。
 
-[jekyll-docs]: https://jekyllrb.com/docs/home
-[jekyll-gh]:   https://github.com/jekyll/jekyll
-[jekyll-talk]: https://talk.jekyllrb.com/
+A 说明天早上的气温能到 20度，B 不同意。他们决定打 0.01 比特币的赌（或者其他加密货币）。
+
+如果 A 和 B 互相不信任，他们就必须找一个第三方担保人，把钱给担保人，担保人判断谁打赌赢了，再把钱给赢的一方。
+
+这里没有办法绕开中间人，尽管用的是比特币。比特币的链没办法记录这个合约。
+
+以太坊提供了一个解决方案。A 和 B 同意用一个基本的代码（if then 组成的合约），基于温度来支付。如果温度高于 20度，代码会自动支付给 A，否则，自动支付给 B。然后 A 和 B 把他们编好代码的赌约放到以太坊的区块链上。 
+
+这个是一个"合约"，因为 A 和 B 都同意了里面的条款，某种意义上，代码相当于法律。它是"智能的"，"去中心化的"，以太坊链的所有参与者，都持有一份这个合约。
+
+就像比特币的节点，所有系统的参与者，都知道 A 支付了 0.01 比特币给 B，所有以太坊的节点，都知道 A 和 B 打了这个赌。
+
+未完待续...
+
+参考: [cbinsights][cb-insights]
+
+[cb-insights]: https://www.cbinsights.com/research/what-is-ethereum/
