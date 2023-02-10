@@ -34,6 +34,10 @@ date: '2014-09-03 11:36:40'
 * Bash (DevOps). > 15 years.
 * Docker (DevOps). ~ 3 years.
 
+## Blockchain
+
+* Ethereum smart contract (Solidity). ~ 2 months.
+
 # Experiences
 
 * Lead development team about 13 years.
