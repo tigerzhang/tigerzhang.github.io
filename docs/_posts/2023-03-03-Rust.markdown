@@ -75,7 +75,7 @@ Rust 一开始最重要的特性就是`所有权`，基于所有权机制，Rust
 
 从 CPU 的负载、内存使用量、响应延迟多个方面，都有最完美的表现。
 
-另外，IoT 系统的 Web 管理后台 API，也用 Rust 重构，比起目前主流的 Spring Boot，Rust 版本明显响应速度更快，内存使用更少。实际开发效率也不会比 Spring 差，反倒是 Rust 的 Actix Web 框架没有 Spring 很多过度设计的特性，更容易控制。
+另外，IoT 系统的 `Web` 管理后台 API，也用 Rust 重构，比起目前主流的 `Spring Boot`，Rust 版本明显响应速度更快，内存使用更少。实际开发效率也不会比 Spring 差，反倒是 Rust 的 `Actix Web` 框架没有 Spring 很多过度设计的特性，更容易控制。
 
 ## 前景和问题
 
