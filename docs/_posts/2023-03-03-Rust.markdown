@@ -17,7 +17,7 @@ categories:
 
 Rust 由 Mozilla 基金会于 2006 年开始开发，最初定位是 “更好的 C++”，为了 Mozilla 编写新的浏览器引擎 Servo。
 
-随着 Rust 的发展，现在已经脱离 Mozilla 基金会。并且，Rust 现在发展得很成功，但是 Servo 这个项目基本已经停滞了。
+随着 Rust 的发展，现在已经脱离 Mozilla 基金会。并且，Rust 现在发展得很成功，反倒是 Servo 这个项目基本已经停滞了。
 
 ## Rust 的特点
 
