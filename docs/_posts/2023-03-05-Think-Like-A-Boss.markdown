@@ -1,11 +1,9 @@
 ---
 layout: post
 title: "老板思维"
-date: 2023-03-05 08:49:00
-categories:
+date: 2023-03-05 08:49:00 +0800
+categories: management
 ---
-
-# 老板思维
 
 ## 朋友公司的故事
 
