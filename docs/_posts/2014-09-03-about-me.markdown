@@ -29,14 +29,14 @@ date: '2014-09-03 11:23:00'
 * Java (Spring Boot). > 10 years.
 * Node.js (Express). > 8 years.
 * Erlang OTP. > 8 years.
-* Rust. ~ 1 year.
+* Rust. ~ 2 year.
 * Python (DevOps). > 10 years.
 * Bash (DevOps). > 15 years.
 * Docker (DevOps). ~ 3 years.
 
 ## Other
 
-* C/C++. ~ 10 years.
+* C/C++. > 10 years.
 
 ## Blockchain
 
