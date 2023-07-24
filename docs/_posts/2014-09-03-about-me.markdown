@@ -40,7 +40,7 @@ date: '2014-09-03 11:23:00'
 
 ## Blockchain
 
-* Ethereum smart contract (Solidity). ~ 2 months.
+* Ethereum smart contract (Solidity). ~ 6 months.
 
 # Experiences
 
