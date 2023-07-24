@@ -60,11 +60,6 @@ date: '2014-09-03 11:23:00'
 
 # 兴趣
 
-* OS/Virtualization: Linux, Xen, OpenStack, CloudStack
-* Message System: XMPP, MQTT, RabbitMQ
-* Cache, key/value System: Raft/LeveDB
-* Language: Rust
-* Other Language/Platform: C/C++, Python/Django, Erlang/OTP, Java/Spring, Javascript/Node.js
-* AI/CNN
-
-Updated at 2023-02-10
+* Clouding System
+* IoT
+* AI
