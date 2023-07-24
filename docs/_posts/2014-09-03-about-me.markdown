@@ -55,7 +55,7 @@ date: '2014-09-03 11:23:00'
 # 项目
 
 * 云巴 ([yunba.io](http://yunba.io/)) 创始人。
-* JPush 创始人，原CTO。JPush 是一个Android/iOS应用的第三方云推送系统。
+* JPush 创始人，原CTO。JPush 是一个Android/iOS应用的第三方云推送系统。公司后在纳斯达克上市。
 * Oracle VM。创始团队成员。
 
 # 兴趣
